@@ -3,27 +3,29 @@ package com.ejercicios.java;
 public class Ejercicio3 {
 
 	public static void main(String[] args) {
-		// Escribe la declaración más apropiada para cada una de las siguientes variables. El nombre de cada una indica
-		// el tipo de dato que contendrá y servirá para determinar el tipo de dato más adecuado en la declaración de la variable.
-		//
-		// a) edad                                                b) códigoPostal
-		// c) altura                                              d) genero (valores: H: hombre, M: mujer)                   
-		// e) nombre                                              f) númeroDeHijos
-		// g) iva (valores: % a aplicar)                          h) tallaCamisa (valores numéricos)
-		// i) peso                                                j) precio 
-		// k) alumnoRepetidor  (valores: SI/NO)                   l) mensaje
-		// m) letra                                               n) mayorEdad                                               
-		// o) minutos                                             p) días
-		// q) matriculaCoche                                      r) contador
-		// s) mayorDeEdad  (valores: verdadero/falso)             t) tallaCamiseta (valores: S, L, XL...)
-
+		/*
+		 * Escribe la declaración más apropiada para cada una de las siguientes variables. El nombre de cada una indica
+		 * el tipo de dato que contendrá y servirá para determinar el tipo de dato más adecuado en la declaración de la variable.
+		 * 
+		 *  a) edad                                                b) códigoPostal
+		 *  c) altura                                              d) genero (valores: H: hombre, M: mujer)                   
+		 *  e) nombre                                              f) númeroDeHijos
+		 *  g) iva (valores: % a aplicar)                          h) tallaCamisa (valores numéricos)
+		 *  i) peso                                                j) precio 
+		 *  k) alumnoRepetidor  (valores: SI/NO)                   l) mensaje
+		 *  m) letra                                               n) mayorEdad                                               
+		 *  o) minutos                                             p) días
+		 *  q) matriculaCoche                                      r) contador
+		 *  s) mayorDeEdad  (valores: verdadero/falso)             t) tallaCamiseta (valores: S, L, XL...)
+		 */
+				
 		int edad = 35;
 		int codigoPostal = 630001;
 		double altura = 1.57;
 		char genero = 'M';
 		String nombre = "Estephanía";
 		int numeroDeHijos = 1;
-		double iva = 19.0;
+		double iva = 18.5;
 		int tallaCamisa = 8;
 		double peso = 51.2;
 		int precio = 25800;
@@ -58,6 +60,5 @@ public class Ejercicio3 {
 		System.out.println("Contador: " + contador);
 		System.out.println("¿Mayor de edad? " + mayorDeEdad);
 		System.out.println("Talla camiseta: " + tallaCamiseta);	
-
 	}
 }
