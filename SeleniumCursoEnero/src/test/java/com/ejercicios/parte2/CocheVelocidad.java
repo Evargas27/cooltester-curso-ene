@@ -1,4 +1,4 @@
-package com.ejercicios.java;
+package com.ejercicios.parte2;
 
 public class CocheVelocidad {
 
