@@ -1,4 +1,4 @@
-package com.ejercicios.java;
+package com.java.ejercicios1;
 
 public class Ejercicio4 {
 
