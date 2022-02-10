@@ -1,4 +1,4 @@
-package com.ejercicios.parte2;
+package com.java;
 
 public class DecimalProfe {
 	public static boolean areEqualByThreeDecimalPlaces (double number1, double number2) {
