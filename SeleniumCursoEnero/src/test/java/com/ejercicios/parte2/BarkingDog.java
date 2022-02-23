@@ -11,7 +11,7 @@ public class BarkingDog {
 		if (hourOfDay < 8 || hourOfDay > 22) {
 			return true;
 		}
-
-		return false;
+		
+		return false;		
 	}	
 }
