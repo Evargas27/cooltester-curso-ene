@@ -54,7 +54,7 @@ public class FacebookTest {
 
 //		1- Text box para ingresar el correo electrónico. --> //*[@id="email"]
 //		2- Text box para ingresar la contraseña. --> //*[@id="pass"]
-//		3- Botón iniciar sesión. --> //*[@id="u_0_j_AN"]
+//		3- Botón iniciar sesión. --> //button[@name="login"]
 //		4- Botón "¿Olvidaste tu contraseña?". --> //*[contains(@href,'recover')]
 //		5- Label "Crea una página para una celebridad, una marca o un negocio.". --> //*[contains(@href,'registration')]
 		
