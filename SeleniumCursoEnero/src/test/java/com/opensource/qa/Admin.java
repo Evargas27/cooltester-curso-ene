@@ -37,7 +37,7 @@ public class Admin {
 		msgUserNoExist = "No Records Found";//"No se encontraron registros";
 		user = "Alice Duval";		
 		//int numUser = (int) Math.floor(Math.random());
-		newUser = "Tefis21";			
+		newUser = "Tefis212";			
 		newPass = "Tefis22$%&";
 		msgDelete = "Delete records?";//"¿Eliminar registros?";
 	}
@@ -212,13 +212,13 @@ public class Admin {
 		WebDriverWait wait1 = new WebDriverWait(driver, 10);
 		wait1.until(ExpectedConditions.visibilityOfElementLocated(By.id("deleteConfModal")));
 		
-		String textDeleteBody = driver.findElement(By.cssSelector("#deleteConfModal > div.modal-body > p")).getText();
-		String textDeleteHeader = driver.findElement(By.cssSelector("#deleteConfModal > div.modal-header > h3")).getText();
+//		String textDeleteBody = driver.findElement(By.cssSelector("#deleteConfModal > div.modal-body > p")).getText();
+//		Assert.assertEquals(textDeleteBody, msgDelete);
+//		System.out.println("INFO POPUP BODY" + textDeleteBody);
 		
-		Assert.assertEquals(textDeleteBody, msgDelete);
-		
-		System.out.println("INFO POPUP BODY" + textDeleteBody);
-		System.out.println("INFO POPUP HEADER" + textDeleteHeader);
+//		 Xpath mensaje popup//*[@id="deleteConfModal"]/div[2]/p
+//		String textDeleteHeader = driver.findElement(By.cssSelector("#deleteConfModal > div.modal-header > h3")).getText();
+//		System.out.println("INFO POPUP HEADER" + textDeleteHeader);
 		
 		// Step 11
 		Reporter.log("Click Ok to confirm delete user");
@@ -274,20 +274,22 @@ public class Admin {
 		Assert.assertEquals(msgTable,msgUserNoExist);
 	}
 	
-	private WebElement buscarBoton(WebDriver driver) {
-		try {
-			return driver.findElement(By.id("searchSystemUser_userName"));
-			
-		} catch (Exception e) {
-			return null;
-		}
-	}
+//	private WebElement buscarBoton(WebDriver driver) {
+//		try {
+//			return driver.findElement(By.id("searchSystemUser_userName"));
+//			
+//		} catch (Exception e) {
+//			return null;
+//		}
+//	}
 
+	/*
+	 * MÉTODO CON HARD WAIT
+	 */
 	private void pause() {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
