@@ -1,4 +1,10 @@
 {
 	"userNotExist":"XYZ",
-	"msgNoRecords": "No Records Found"
+	"msgNoRecords":"No Records Found",
+	"employeeName":"Admin A",
+	"newUser":"Tefis1",
+	"newPassword":"12345678",
+	"confPassword":"12345678",
+	"value":"0",
+	"status":"Disabled"
 }

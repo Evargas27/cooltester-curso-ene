@@ -15,11 +15,12 @@ public class Login extends Base {
 	/*
 	 * Objects
 	 */
-	By txtUsername = By.id("txtUsername");
-	By txtPassword = By.id("txtPassword");
-	By btnLogin = By.id("btnLogin");
-	By lnkWelcome = By.xpath("//a[@id='welcome']");
-	By lnkLogout = By.xpath("//a[contains(@href, 'logout')]");
+	private By txtUsername = By.id("txtUsername");
+	private By txtPassword = By.id("txtPassword");
+	private By btnLogin = By.id("btnLogin");
+	private By lnkWelcome = By.xpath("//a[@id='welcome']");
+	private By lnkLogout = By.xpath("//a[contains(@href, 'logout')]");
+	private By lblInvalidCredentials = By.id("spanMessage");
 
 	/*
 	 * Customize methods
@@ -30,7 +31,6 @@ public class Login extends Base {
 		type(txtUsername, username);
 		type(txtPassword, password);
 		click(btnLogin);
-		//Token
 		waitForElementPresent(lnkWelcome);
 	}
 
@@ -42,5 +42,17 @@ public class Login extends Base {
 		closeBrowser();
 
 	}
-
+	
+	public void loginOrange(String username, String password, String msgInvalidCredentials) {
+		reporterLog("Login into Orange HRM Portal");
+		launchBrowser(GlobalVariables.QA_URL);
+		type(txtUsername, username);
+		type(txtPassword, password);
+		click(btnLogin);
+		implicitWait();
+		
+		String msgActual = getText(lblInvalidCredentials);
+		assertEquals(msgActual, msgInvalidCredentials);
+	}
+	
 }

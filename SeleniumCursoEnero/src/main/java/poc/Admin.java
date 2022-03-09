@@ -21,6 +21,16 @@ public class Admin extends Base{
 	private By btnSearch = By.id("searchBtn");
 	private By tblUsername = By.xpath("//tbody/tr[1]/td[2]");
 	
+	//Objects Add
+	private By btnAdd = By.id("btnAdd");
+	private By txtEmployeeName = By.id("systemUser_employeeName_empName");
+	private By txtNewUser = By.id("systemUser_userName");
+	private By sddUserStatus = By.id("systemUser_status");
+	private By txtPassword = By.id("systemUser_password");
+	private By txtConfPassword = By.id("systemUser_confirmPassword");
+	private By btnSave = By.id("btnSave");
+	private By tblUserStatus = By.xpath("//tbody/tr[1]/td[5]");
+
 	/*
 	 * Customize methods
 	 */
@@ -38,4 +48,43 @@ public class Admin extends Base{
 		Assert.assertEquals(actualUsername, expectedUser);
 	}
 
+	public void addUser(String employeeName, String newUser, String newPassword, String confPassword) {
+		reporterLog("Add user");
+		click(lnkAdminHeader);
+		implicitWait();
+		click(btnAdd);
+		implicitWait();
+		type(txtEmployeeName, employeeName);
+		type(txtNewUser, newUser);
+		type(txtPassword, newPassword);
+		type(txtConfPassword, confPassword);
+		hardWait();
+		click(btnSave);
+	}
+	
+	public void addUser(String employeeName, String newUser, String newPassword, String confPassword, String value) {
+		reporterLog("Add user");
+		click(lnkAdminHeader);
+		click(btnAdd);
+		implicitWait();
+		type(txtEmployeeName, employeeName);
+		type(txtNewUser, newUser);
+		select(sddUserStatus, value);
+		type(txtPassword, newPassword);
+		type(txtConfPassword, confPassword);
+		click(btnSave);
+	}	
+	
+	public void searchUserAdd(String newUser) {
+		reporterLog("Searching username..."+newUser);
+		type(txtUsername, newUser);
+		click(btnSearch);
+		implicitWait();	
+	}
+	
+	public void validateStatus(String expectedStatus) {
+		reporterLog("Verify username is Disabled Status in table");		
+		String actualStatus = getText(tblUserStatus);
+		Assert.assertEquals(actualStatus, expectedStatus);
+	}
 }

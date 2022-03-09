@@ -19,6 +19,7 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -87,8 +88,24 @@ public class Base {
 			driver.findElement(locator).click();
 		}catch(NoSuchElementException e) {
 			e.printStackTrace();
-		}
-		
+		}		
+	}
+	
+	/*
+	 * Select
+	 * @param: locator, value 
+	 * @return: void
+	 * @throws: NoSuchElementException
+	 * @author: evargas
+	 * @date: 07/Mar/2022
+	 */
+	public void select(By locator, String value) {			
+		try {
+			Select select = new Select(driver.findElement(locator));		
+			select.selectByValue(value);
+		}catch(NoSuchElementException e) {
+			e.printStackTrace();
+		}			
 	}
 	
 	/*
@@ -144,6 +161,17 @@ public class Base {
 		Assert.assertEquals(actual, expected);
 	}
 	
+	/*
+	 * hardWait
+	 */
+	public void hardWait() {
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	/**
 	 * Get Data from JSON file (Directly)
 	 * 
@@ -193,5 +221,5 @@ public class Base {
 			e1.printStackTrace();
 			return null;
 		}
-	}
+	}	
 }

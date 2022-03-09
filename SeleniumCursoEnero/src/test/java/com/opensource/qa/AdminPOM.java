@@ -19,7 +19,7 @@ public class AdminPOM {
 	Base base;
 	Login login;
 	Admin admin;
-	String username, password, msgNoRecords, userNotExist, newEmployee, newUser, newpassword;
+	String username, password, msgNoRecords, userNotExist, employeeName, newUser, newPassword, confpassword, status, value, invalidPass, msgInvalidPass;
 	String jsonCredentials = "Credentials";
 	String jsonAdminTestData = "AdminTestData";
 
@@ -35,9 +35,14 @@ public class AdminPOM {
 		password = base.getJSONData(jsonCredentials, "password");
 		userNotExist = base.getJSONData(jsonAdminTestData, "userNotExist");
 		msgNoRecords = base.getJSONData(jsonAdminTestData, "msgNoRecords");
-//		newEmployee = "";
-//		newUser = "";
-//		newpassword = "";
+		employeeName = base.getJSONData(jsonAdminTestData, "employeeName");
+		newUser = base.getJSONData(jsonAdminTestData, "newUser");
+		newPassword = base.getJSONData(jsonAdminTestData, "newPassword");
+		confpassword = base.getJSONData(jsonAdminTestData, "confPassword");
+		value = base.getJSONData(jsonAdminTestData, "value");
+		status = base.getJSONData(jsonAdminTestData, "status");
+		invalidPass = base.getJSONData(jsonCredentials, "invalidPass");
+		msgInvalidPass = base.getJSONData(jsonCredentials, "msgInvalidPass");
 	}
 
 	@Test
@@ -56,6 +61,51 @@ public class AdminPOM {
 		login.logOut();
 	}
 
+	@Test
+	public void tc003AdminAddNewUserPOM() {
+	
+		// STEP 1, 2, 3
+		login.loginOrange(username, password);
+
+		// STEP 4, 5, 6, 7, 8, 9, 10
+		admin.addUser(employeeName, newUser, newPassword, confpassword);
+				
+		// STEP 11, 12
+		admin.searchUserAdd(newUser);
+
+		// STEP 13
+		admin.validateUsernameTable(newUser);
+
+		// STEP 14, 15
+		login.logOut();
+	}
+	
+	@Test
+	public void tc005AdminCreateUserDisabledPOM() {
+	
+		// STEP 1, 2, 3
+		login.loginOrange(username, password);
+
+		// STEP 4, 5, 6, 7, 8, 9, 10
+		admin.addUser(employeeName, newUser, newPassword, confpassword, value);
+				
+		// STEP 11, 12
+		admin.searchUserAdd(newUser);
+
+		// STEP 13
+		admin.validateStatus(status);
+
+		// STEP 14, 15
+		login.logOut();
+	}	
+	
+	@Test
+	public void tc007ValidateInvalidPassword() {
+		
+		// STEP 1, 2, 3, 4
+		login.loginOrange(username, invalidPass, msgInvalidPass);
+	}	
+	
 	@AfterTest
 	public void afterTest() {
 	}
